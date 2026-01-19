@@ -1,0 +1,21 @@
+id,question,category,difficulty,used,correct_answer
+1,Have you ever been in love?,1,1,False,Yes
+2,Have you ever lied to your best friend?,1,1,True,Yes
+3,Have you ever cheated on a test?,2,1,True,No
+4,Have you ever skipped school?,2,1,False,Yes
+5,Have you ever sung in public?,1,2,False,No
+6,Have you ever had a crush on someone older?,1,2,False,Yes
+7,Have you ever broken a promise?,2,2,True,Yes
+8,Have you ever regretted a purchase?,3,2,False,Yes
+9,Have you ever cried at a movie?,1,3,False,Yes
+10,Have you ever pretended to understand something?,2,3,False,Yes
+11,Have you ever ghosted someone?,1,1,False,No
+12,Have you ever been caught in an embarrassing moment?,1,1,True,Yes
+13,Have you ever laughed so hard you cried?,1,2,False,Yes
+14,Have you ever danced like nobody is watching?,3,2,False,Yes
+15,Have you ever tried to impress someone?,1,2,True,Yes
+16,Have you ever failed at something important?,2,3,True,Yes
+17,Have you ever given someone unsolicited advice?,2,1,False,Yes
+18,Have you ever been jealous of a friend?,1,2,False,Yes
+19,Have you ever talked behind someone's back?,2,2,False,No
+20,Have you ever made a New Year's resolution?,3,1,False,Yes
