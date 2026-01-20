@@ -5,6 +5,7 @@ Manages question state and retrieval.
 """
 
 import csv
+import io
 import random
 from pathlib import Path
 from typing import List, Dict, Optional, Any
@@ -28,6 +29,7 @@ class DataManager:
         """
         Load all questions from the CSV file into memory.
         Converts 'used' column to boolean and 'id', 'category', 'difficulty' to int.
+        Skips lines that start with '#' (comments).
 
         Raises:
             FileNotFoundError: If CSV file does not exist.
@@ -39,9 +41,14 @@ class DataManager:
         self.questions = []
         try:
             with open(self.csv_path, mode='r', encoding='utf-8') as file:
-                reader = csv.DictReader(file)
-                if reader.fieldnames != ['id', 'question', 'category', 'difficulty', 'used', 'correct_answer']:
-                    raise ValueError("CSV structure doesn't match expected columns")
+                # Skip comment lines
+                lines = [line for line in file if not line.strip().startswith('#')]
+                # Create a new iterator from filtered lines
+                filtered_file = io.StringIO(''.join(lines))
+                
+                reader = csv.DictReader(filtered_file)
+                if reader.fieldnames != ['id', 'category', 'difficulty', 'used', 'question']:
+                    raise ValueError(f"CSV structure doesn't match expected columns. Found: {reader.fieldnames}")
 
                 for row in reader:
                     question = {
@@ -50,7 +57,6 @@ class DataManager:
                         'category': int(row['category']),
                         'difficulty': int(row['difficulty']),
                         'used': row['used'].lower() == 'true',
-                        'correct_answer': row['correct_answer'].lower() == 'yes'
                     }
                     self.questions.append(question)
         except (csv.Error, ValueError) as e:
@@ -66,18 +72,17 @@ class DataManager:
         """
         try:
             with open(self.csv_path, mode='w', newline='', encoding='utf-8') as file:
-                fieldnames = ['id', 'question', 'category', 'difficulty', 'used', 'correct_answer']
+                fieldnames = ['id', 'category', 'difficulty', 'used', 'question']
                 writer = csv.DictWriter(file, fieldnames=fieldnames)
                 writer.writeheader()
 
                 for question in self.questions:
                     writer.writerow({
                         'id': question['id'],
-                        'question': question['question'],
                         'category': question['category'],
                         'difficulty': question['difficulty'],
                         'used': str(question['used']),
-                        'correct_answer': 'Yes' if question['correct_answer'] else 'No'
+                        'question': question['question']
                     })
         except IOError as e:
             raise IOError(f"Error writing to CSV file: {e}")

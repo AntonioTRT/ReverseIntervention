@@ -1,10 +1,11 @@
 """
 Main Entry Point
-Clean initialization and launch of the party game.
+Clean initialization and launch of the party game with PyQt5 GUI.
 """
 
 import sys
 import os
+from pathlib import Path
 
 # Set UTF-8 encoding for Windows console
 if sys.platform == 'win32':
@@ -13,7 +14,7 @@ if sys.platform == 'win32':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
-from pathlib import Path
+from PyQt5.QtWidgets import QApplication
 
 from data_manager import DataManager
 from game_logic import Game
@@ -41,9 +42,15 @@ def main():
     game = Game(data_manager)
     scoreboard = Scoreboard()
 
+    # Create PyQt5 application
+    app = QApplication(sys.argv)
+
     # Create and run UI
     ui = GameUI(game, scoreboard)
     ui.run()
+
+    # Run the Qt application event loop
+    sys.exit(app.exec_())
 
 
 if __name__ == "__main__":

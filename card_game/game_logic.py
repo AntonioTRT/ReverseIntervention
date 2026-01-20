@@ -135,6 +135,7 @@ class Game:
 
         self.is_game_active = True
         self.round_number = 0
+        self.current_player_index = 0
         return True
 
     def get_active_players(self) -> List[Player]:
@@ -184,25 +185,20 @@ class Game:
             answered_yes (bool): True if player said yes, False if player said no.
 
         Returns:
-            Dict: Result containing if answer was correct and strike info.
+            Dict: Result containing strike info based on answer.
         """
         if not self.current_question:
-            return {'correct': False, 'strikes': 0, 'must_drink': False}
-
-        # Check if answer is correct
-        is_correct = (answered_yes == self.current_question['correct_answer'])
+            return {'strikes': 0, 'must_drink': False, 'answered_yes': answered_yes}
 
         result = {
             'player_name': player.name,
             'answered_yes': answered_yes,
-            'correct_answer': self.current_question['correct_answer'],
-            'is_correct': is_correct,
             'strikes': player.strikes,
             'must_drink': False
         }
 
-        # Only add strike if answer is CORRECT
-        if is_correct:
+        # Only add strike if player answered YES
+        if answered_yes:
             strikes = player.add_strike()
             result['strikes'] = strikes
             must_drink = player.must_drink()

@@ -1,21 +1,83 @@
-id,question,category,difficulty,used,correct_answer
-1,Have you ever been in love?,1,1,False,Yes
-2,Have you ever lied to your best friend?,1,1,True,Yes
-3,Have you ever cheated on a test?,2,1,True,No
-4,Have you ever skipped school?,2,1,False,Yes
-5,Have you ever sung in public?,1,2,False,No
-6,Have you ever had a crush on someone older?,1,2,False,Yes
-7,Have you ever broken a promise?,2,2,True,Yes
-8,Have you ever regretted a purchase?,3,2,False,Yes
-9,Have you ever cried at a movie?,1,3,False,Yes
-10,Have you ever pretended to understand something?,2,3,False,Yes
-11,Have you ever ghosted someone?,1,1,False,No
-12,Have you ever been caught in an embarrassing moment?,1,1,True,Yes
-13,Have you ever laughed so hard you cried?,1,2,False,Yes
-14,Have you ever danced like nobody is watching?,3,2,False,Yes
-15,Have you ever tried to impress someone?,1,2,True,Yes
-16,Have you ever failed at something important?,2,3,True,Yes
-17,Have you ever given someone unsolicited advice?,2,1,False,Yes
-18,Have you ever been jealous of a friend?,1,2,False,Yes
-19,Have you ever talked behind someone's back?,2,2,False,No
-20,Have you ever made a New Year's resolution?,3,1,False,Yes
+id,category,difficulty,used,question
+1,1,1,False,Send a message to an ex saying sorry or asking to meet
+2,1,1,False,Fight with a bouncer
+3,1,1,False,Fallen asleep in public transport returning home or another bar
+4,1,1,False,Thrown up in a bar taxi street bag or at home
+5,1,1,False,Take shots of different alcohols
+6,1,1,False,Share your phone number with a random person
+7,1,1,False,Send crying voice messages
+8,1,1,False,Tell secrets to a random person in a bar
+9,1,1,False,Cry with a random person
+10,1,1,False,Fallen asleep in a bar
+11,1,1,False,Fight in a bar
+12,1,1,False,Smuggle alcohol into a bar
+13,1,1,False,Drink at a family friendly event or around kids
+14,1,1,False,Dye or cut your hair while drunk
+15,1,1,False,Get kicked out of a bar
+16,1,1,False,Get banned from a bar
+17,1,1,False,Do something embarrassing during karaoke
+18,1,1,False,"Be told ""you are not like this"""
+19,1,1,False,Lose an item of clothing
+20,1,1,False,Drink in a religious place
+21,1,1,False,Break a glass
+22,1,1,False,Pay a drink for a random person
+23,1,1,False,Make weird alcohol mixes
+24,1,1,False,Drink someone else's drink on purpose
+25,1,1,False,Hide that you are drunk
+26,1,1,False,Give someone a fake name or identity
+27,1,1,False,Speak a language you barely know
+28,1,1,False,Lie about your name
+29,1,1,False,Reveal a secret you weren't supposed to
+30,1,1,False,Pee outside
+31,1,1,False,Get naked in public
+32,1,1,False,Make plans you won't remember
+33,1,1,False,Miss a gig or event because of being drunk
+34,2,1,False,Go to work or school hungover
+35,2,1,False,Drink while hungover
+36,2,1,False,Delete posts or stories from the previous night
+37,2,1,False,Be afraid to check your bank account
+38,2,1,False,Be told you need to apologise
+39,2,1,False,Wake up in an unknown place
+40,2,1,False,Cry in public while hungover
+41,2,1,False,Have a hangover cure
+42,2,1,False,Return to the bar to say sorry
+43,2,1,False,Be ashamed of messages you sent
+44,2,1,False,Attend an event while hungover
+45,2,1,False,Order food because of hangover
+46,2,1,False,Not remember the previous night
+47,2,1,False,Wake up with bruises
+48,2,1,False,Tasottavat (hangover balancing drinks)
+49,2,1,False,Find out some of your stuff is broken
+50,3,1,False,Get drunk before an event that doesn't allow alcohol
+51,3,1,False,Get drunk before going to a bar
+52,3,1,False,Have a good meal to prepare for drinking
+53,3,1,False,Get drunk when you weren't supposed to
+54,3,1,False,Have a plan to avoid hangover
+55,3,1,False,Say you won't get drunk
+56,3,1,False,"Go for ""just one drink"""
+57,4,1,False,Lose a shoe keys wallet or your group
+58,4,1,False,Get drunk with your mum
+59,4,1,False,Buy alcohol for underagers
+60,4,1,False,Spend the night outside your home
+61,4,1,False,Smuggle alcohol into a place that doesn't allow drinks
+62,4,1,False,Mix alcohol into a non alcoholic drink
+63,4,1,False,Avoid returning to a bar because you are ashamed
+64,4,1,False,Sneak into a bar or gig without paying
+65,4,1,False,Try to buy alcohol before or after legal hours
+66,4,1,False,Host a spontaneous after party
+67,4,1,False,Get drunk while underage
+68,4,1,False,Get an invitation and feel you must get drunk before it
+69,4,1,True,Invent your own cocktail
+70,5,1,False,Know the names of beers tequilas etc
+71,5,1,False,Know the exact price of a drink at a bar or store
+72,5,1,False,Know the difference between whiskey and bourbon
+73,5,1,False,Know the ingredients of a mojito or white Russian
+74,5,1,False,Have a social media friend you met once while drunk
+75,5,1,False,Buy something stupid online
+76,5,1,False,Know how long it takes you to finish a drink
+77,6,1,False,Visit a new place for the first time while drunk
+78,6,1,False,Get a drink for free at a bar
+79,6,1,False,Have a drinking nickname
+80,6,1,True,Win a drinking game
+81,6,1,False,Be the last one awake
+82,6,1,False,Be told by a doctor you need to drink less
