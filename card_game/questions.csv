@@ -1,9 +1,9 @@
 id,category,difficulty,used,question
 1,1,1,False,Send a message to an ex saying sorry or asking to meet
 2,1,1,False,Fight with a bouncer
-3,1,1,False,Fallen asleep in public transport returning home or another bar
+3,1,1,False,Fallen asleep in public transport returning home
 4,1,1,False,Thrown up in a bar taxi street bag or at home
-5,1,1,False,Take shots of different alcohols
+5,1,1,False,Take shots of different alcohols in the same nigth
 6,1,1,False,Share your phone number with a random person
 7,1,1,False,Send crying voice messages
 8,1,1,False,Tell secrets to a random person in a bar
@@ -16,11 +16,11 @@ id,category,difficulty,used,question
 15,1,1,False,Get kicked out of a bar
 16,1,1,False,Get banned from a bar
 17,1,1,False,Do something embarrassing during karaoke
-18,1,1,False,"Be told ""you are not like this"""
+18,1,1,False,"Be told ""you are not like this"""""""
 19,1,1,False,Lose an item of clothing
-20,1,1,False,Drink in a religious place
-21,1,1,False,Break a glass
-22,1,1,False,Pay a drink for a random person
+20,1,1,False,Drink in a religious event
+21,1,1,False,Break a glass while drinking
+22,1,1,False,Pay a drink for a stranger
 23,1,1,False,Make weird alcohol mixes
 24,1,1,False,Drink someone else's drink on purpose
 25,1,1,False,Hide that you are drunk
@@ -28,8 +28,8 @@ id,category,difficulty,used,question
 27,1,1,False,Speak a language you barely know
 28,1,1,False,Lie about your name
 29,1,1,False,Reveal a secret you weren't supposed to
-30,1,1,False,Pee outside
-31,1,1,False,Get naked in public
+30,1,1,True,Pee outside while drunk
+31,1,1,False,Get naked in public while drunk
 32,1,1,False,Make plans you won't remember
 33,1,1,False,Miss a gig or event because of being drunk
 34,2,1,False,Go to work or school hungover
@@ -47,7 +47,7 @@ id,category,difficulty,used,question
 46,2,1,False,Not remember the previous night
 47,2,1,False,Wake up with bruises
 48,2,1,False,Tasottavat (hangover balancing drinks)
-49,2,1,False,Find out some of your stuff is broken
+49,2,1,True,Find out some of your stuff is broken
 50,3,1,False,Get drunk before an event that doesn't allow alcohol
 51,3,1,False,Get drunk before going to a bar
 52,3,1,False,Have a good meal to prepare for drinking
@@ -55,8 +55,8 @@ id,category,difficulty,used,question
 54,3,1,False,Have a plan to avoid hangover
 55,3,1,False,Say you won't get drunk
 56,3,1,False,"Go for ""just one drink"""
-57,4,1,False,Lose a shoe keys wallet or your group
-58,4,1,False,Get drunk with your mum
+57,4,1,False,Lose a shoe 
+58,4,1,False,Get drunk with your parents
 59,4,1,False,Buy alcohol for underagers
 60,4,1,False,Spend the night outside your home
 61,4,1,False,Smuggle alcohol into a place that doesn't allow drinks
@@ -68,16 +68,24 @@ id,category,difficulty,used,question
 67,4,1,False,Get drunk while underage
 68,4,1,False,Get an invitation and feel you must get drunk before it
 69,4,1,False,Invent your own cocktail
-70,5,1,False,Know the names of beers tequilas etc
-71,5,1,False,Know the exact price of a drink at a bar or store
+70,5,1,False,Know the names of 3 beer brand
+71,5,1,False,Know the exact price of a drink at your local bar 
 72,5,1,False,Know the difference between whiskey and bourbon
-73,5,1,False,Know the ingredients of a mojito or white Russian
+73,5,1,False,Know the ingredients of a mojito
 74,5,1,False,Have a social media friend you met once while drunk
-75,5,1,False,Buy something stupid online
-76,5,1,False,Know how long it takes you to finish a drink
+75,5,1,False,Buy something stupid online while drunk
+76,5,1,False,Know how long it takes you to finish your beer
 77,6,1,False,Visit a new place for the first time while drunk
-78,6,1,True,Get a drink for free at a bar
+78,6,1,False,Get a drink for free at a bar
 79,6,1,False,Have a drinking nickname
 80,6,1,False,Win a drinking game
 81,6,1,False,Be the last one awake
 82,6,1,False,Be told by a doctor you need to drink less
+83,1,1,False,Lie about your age at bar
+84,4,1,False,Lose your group
+85,4,1,False,Lose your wallet
+86,5,1,True,Know the name of a tequilas brand
+87,5,1,False,Know the name of a brandi brand
+88,5,1,False,Know the exact price of a drink at your local store 
+89,5,1,False,Know the ingredients of a white Russian
+81,6,1,False,having shot glasses at home 

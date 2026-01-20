@@ -137,9 +137,12 @@ class DataManager:
         """
         Reset all questions to unused state.
         Useful for starting a new game.
+        Also saves the changes to the CSV file.
         """
         for question in self.questions:
             question['used'] = False
+        # Save the reset state to CSV
+        self.save_questions()
 
     def get_question_by_id(self, question_id: int) -> Optional[Dict[str, Any]]:
         """

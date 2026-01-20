@@ -38,6 +38,9 @@ def main():
         print(f"Error: {e}")
         sys.exit(1)
 
+    # Reset all questions to unused state at startup
+    data_manager.reset_all_questions()
+
     # Initialize game and scoreboard
     game = Game(data_manager)
     scoreboard = Scoreboard()
