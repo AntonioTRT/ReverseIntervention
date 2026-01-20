@@ -67,7 +67,7 @@ id,category,difficulty,used,question
 66,4,1,False,Host a spontaneous after party
 67,4,1,False,Get drunk while underage
 68,4,1,False,Get an invitation and feel you must get drunk before it
-69,4,1,True,Invent your own cocktail
+69,4,1,False,Invent your own cocktail
 70,5,1,False,Know the names of beers tequilas etc
 71,5,1,False,Know the exact price of a drink at a bar or store
 72,5,1,False,Know the difference between whiskey and bourbon
@@ -76,8 +76,8 @@ id,category,difficulty,used,question
 75,5,1,False,Buy something stupid online
 76,5,1,False,Know how long it takes you to finish a drink
 77,6,1,False,Visit a new place for the first time while drunk
-78,6,1,False,Get a drink for free at a bar
+78,6,1,True,Get a drink for free at a bar
 79,6,1,False,Have a drinking nickname
-80,6,1,True,Win a drinking game
+80,6,1,False,Win a drinking game
 81,6,1,False,Be the last one awake
 82,6,1,False,Be told by a doctor you need to drink less

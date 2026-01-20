@@ -603,14 +603,43 @@ class GameUI(QMainWindow):
         scoreboard_widget = self.create_all_players_scoreboard(player)
         result_main_layout.addWidget(scoreboard_widget)
         
+        # If player must drink, show continue/quit options
+        if result['must_drink']:
+            result_main_layout.addSpacing(20)
+            button_layout = QHBoxLayout()
+            button_layout.addStretch()
+            
+            def continue_after_drink():
+                self.result_timer.stop()
+                self.next_turn()
+            
+            def quit_after_drink():
+                self.show_alcoholic_message(player)
+            
+            continue_btn = QPushButton("Continue Playing")
+            continue_btn.setMinimumHeight(40)
+            continue_btn.setMinimumWidth(150)
+            continue_btn.clicked.connect(continue_after_drink)
+            button_layout.addWidget(continue_btn)
+            
+            quit_btn = QPushButton("Quit")
+            quit_btn.setMinimumHeight(40)
+            quit_btn.setMinimumWidth(150)
+            quit_btn.clicked.connect(quit_after_drink)
+            button_layout.addWidget(quit_btn)
+            
+            button_layout.addStretch()
+            result_main_layout.addLayout(button_layout)
+        
         result_main_layout.addStretch()
         
         result_widget.setLayout(result_main_layout)
         self.stacked_widget.addWidget(result_widget)
         self.stacked_widget.setCurrentWidget(result_widget)
         
-        # Restart timer to go to next turn
-        self.result_timer.start(2000)
+        # Restart timer to go to next turn (only if player doesn't need to drink)
+        if not result['must_drink']:
+            self.result_timer.start(2000)
     
     def show_clock_out_message(self, player):
         """Show clock out message by clearing and rebuilding entire screen."""
@@ -695,6 +724,51 @@ class GameUI(QMainWindow):
         
         # Restart timer to go to next turn
         self.result_timer.start(2000)
+    
+    def show_alcoholic_message(self, player):
+        """Show the alcoholic message when a player decides to quit after drinking."""
+        # Stop the timer
+        self.result_timer.stop()
+        
+        # Clear the stacked widget - remove game screen
+        while self.stacked_widget.count() > 1:
+            widget = self.stacked_widget.widget(1)
+            self.stacked_widget.removeWidget(widget)
+            widget.deleteLater()
+        
+        # Create message widget
+        message_widget = QWidget()
+        message_layout = QVBoxLayout()
+        
+        message_layout.addStretch()
+        
+        # Main message
+        message_text = QLabel(f"Hello my name is {player.name} and I'm an alcoholic")
+        message_font = QFont()
+        message_font.setPointSize(16)
+        message_font.setBold(True)
+        message_text.setFont(message_font)
+        message_text.setAlignment(Qt.AlignCenter)
+        message_layout.addWidget(message_text)
+        
+        message_layout.addStretch()
+        
+        # Continue button
+        continue_btn = QPushButton("Continue")
+        continue_btn.setMinimumHeight(40)
+        continue_btn.setMinimumWidth(150)
+        button_font = QFont()
+        button_font.setPointSize(12)
+        button_font.setBold(True)
+        continue_btn.setFont(button_font)
+        continue_btn.clicked.connect(lambda: self.game.player_clock_out(player) or self.next_turn())
+        message_layout.addWidget(continue_btn, alignment=Qt.AlignCenter)
+        
+        message_layout.addStretch()
+        
+        message_widget.setLayout(message_layout)
+        self.stacked_widget.addWidget(message_widget)
+        self.stacked_widget.setCurrentWidget(message_widget)
     
     def next_turn(self):
         """Move to next turn."""
