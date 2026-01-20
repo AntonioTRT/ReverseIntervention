@@ -28,7 +28,7 @@ id,category,difficulty,used,question
 27,1,1,False,Speak a language you barely know
 28,1,1,False,Lie about your name
 29,1,1,False,Reveal a secret you weren't supposed to
-30,1,1,True,Pee outside while drunk
+30,1,1,False,Pee outside while drunk
 31,1,1,False,Get naked in public while drunk
 32,1,1,False,Make plans you won't remember
 33,1,1,False,Miss a gig or event because of being drunk
@@ -47,7 +47,7 @@ id,category,difficulty,used,question
 46,2,1,False,Not remember the previous night
 47,2,1,False,Wake up with bruises
 48,2,1,False,Tasottavat (hangover balancing drinks)
-49,2,1,True,Find out some of your stuff is broken
+49,2,1,False,Find out some of your stuff is broken
 50,3,1,False,Get drunk before an event that doesn't allow alcohol
 51,3,1,False,Get drunk before going to a bar
 52,3,1,False,Have a good meal to prepare for drinking
@@ -84,7 +84,7 @@ id,category,difficulty,used,question
 83,1,1,False,Lie about your age at bar
 84,4,1,False,Lose your group
 85,4,1,False,Lose your wallet
-86,5,1,True,Know the name of a tequilas brand
+86,5,1,False,Know the name of a tequilas brand
 87,5,1,False,Know the name of a brandi brand
 88,5,1,False,Know the exact price of a drink at your local store 
 89,5,1,False,Know the ingredients of a white Russian

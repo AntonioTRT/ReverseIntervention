@@ -15,6 +15,24 @@ from game_logic import Game, Player
 from scoreboard import Scoreboard
 
 
+# Category mapping
+CATEGORY_NAMES = {
+    1: "While I'm drunk",
+    2: "Hangover",
+    3: "Before drinking",
+    4: "Side quest",
+    5: "Fun facts",
+    6: "Uncategorised"
+}
+
+# Emoji mappings
+def get_strike_display(strikes):
+    """Generate 3 circles: green for active strikes, dark/off for inactive."""
+    return "🟢" * strikes + "⚫" * (3 - strikes)
+
+DRINK_EMOJI = "🍺"  # Beer emoji
+
+
 class WelcomeScreen(QWidget):
     """Welcome screen widget."""
     
@@ -29,7 +47,7 @@ class WelcomeScreen(QWidget):
         layout = QVBoxLayout()
         
         # Title
-        title = QLabel("PARTY TRIVIA GAME")
+        title = QLabel("Reverse Intervention")
         title_font = QFont()
         title_font.setPointSize(20)
         title_font.setBold(True)
@@ -101,7 +119,7 @@ class GameUI(QMainWindow):
         self.result_timer = QTimer()
         self.result_timer.timeout.connect(self.next_turn)
         
-        self.setWindowTitle("Party Trivia Game")
+        self.setWindowTitle("Reverse Intervention")
         self.setGeometry(100, 100, 900, 700)
         
         # Create menu bar
@@ -277,10 +295,12 @@ class GameUI(QMainWindow):
         
         strikes_header = QLabel("Strikes")
         strikes_header.setFont(name_header_font)
+        strikes_header.setAlignment(Qt.AlignCenter)
         scoreboard_layout.addWidget(strikes_header, 0, 1)
         
         drinks_header = QLabel("Drinks")
         drinks_header.setFont(name_header_font)
+        drinks_header.setAlignment(Qt.AlignCenter)
         scoreboard_layout.addWidget(drinks_header, 0, 2)
         
         status_header = QLabel("Status")
@@ -303,14 +323,18 @@ class GameUI(QMainWindow):
             name_label.setFont(name_font)
             scoreboard_layout.addWidget(name_label, idx, 0)
             
-            # Strikes
-            strikes_label = QLabel(f"{player.strikes}/3")
+            # Strikes with emoji (3 circles: green for strikes, dark for unused)
+            strike_display = get_strike_display(player.strikes)
+            strikes_label = QLabel(strike_display)
             strikes_label.setFont(name_font)
+            strikes_label.setAlignment(Qt.AlignCenter)
             scoreboard_layout.addWidget(strikes_label, idx, 1)
             
-            # Drinks
-            drinks_label = QLabel(str(player.drinks_consumed))
+            # Drinks with emoji
+            drinks_display = DRINK_EMOJI * player.drinks_consumed if player.drinks_consumed > 0 else "-"
+            drinks_label = QLabel(drinks_display)
             drinks_label.setFont(name_font)
+            drinks_label.setAlignment(Qt.AlignCenter)
             scoreboard_layout.addWidget(drinks_label, idx, 2)
             
             # Status
@@ -415,7 +439,8 @@ class GameUI(QMainWindow):
         
         question_layout.addSpacing(15)
         
-        metadata = QLabel(f"Category: {question['category']} | Difficulty: {question['difficulty']}/3")
+        category_name = CATEGORY_NAMES.get(question['category'], 'Unknown')
+        metadata = QLabel(f"Category: {category_name}")
         metadata_font = QFont()
         metadata_font.setPointSize(9)
         metadata.setFont(metadata_font)
@@ -545,13 +570,16 @@ class GameUI(QMainWindow):
         # Result header - show strike result based on YES/NO answer
         if result['answered_yes']:
             result_text = "STRIKE RECEIVED!"
-            color = "#FFB6C6"
+            color = "#90EE90"  # Green for strike
         else:
             result_text = "NO STRIKE"
-            color = "#90EE90"
+            color = ""  # No background
         
         result_frame = QFrame()
-        result_frame.setStyleSheet(f"background-color: {color}; border-radius: 5px;")
+        if color:
+            result_frame.setStyleSheet(f"background-color: {color}; border-radius: 5px;")
+        else:
+            result_frame.setStyleSheet("border-radius: 5px;")
         result_layout = QVBoxLayout()
         
         result_label = QLabel(result_text)
